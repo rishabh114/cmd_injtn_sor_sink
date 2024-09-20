@@ -1,6 +1,10 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
+import { SourceComponent } from './app/source/source.component';
+import { SinkComponent } from './app/sink/sink.component';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+
+bootstrapApplication(SourceComponent, {
+  providers: [provideRouter(routes)]
+}).catch((err: any) => console.error(err));
